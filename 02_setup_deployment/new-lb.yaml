@@ -1,0 +1,17 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "quest-example-service"
+  namespace: "default"
+  labels:
+    app: "quest-example"
+spec:
+  ports:
+  - protocol: "TCP"
+    port: 3000
+    targetPort: 3000
+  selector:
+    app: "quest-example"
+  type: "LoadBalancer"
+  loadBalancerIP: "34.136.164.149" #"34.36.7.31" #"34.136.164.149" #"34.36.167.43" #34.136.164.149 #34.36.167.43 #"34.136.164.149" #34.111.84.244 

@@ -1,0 +1,37 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "quest-example"
+  namespace: "default"
+  labels:
+    app: "quest-example"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "quest-example"
+  template:
+    metadata:
+      labels:
+        app: "quest-example"
+    spec:
+      containers:
+      - name: "quests-sha256-1"
+        image: "us-central1-docker.pkg.dev/humble-being-293400/artifacts/abishaiep/quests@sha256:01e123b1a588923c15bc18c44c55b1c3b859bd7bbcf5b12dea2d2c8010e6fa9c"
+---
+apiVersion: "autoscaling/v2"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "quest-example-hpa-ehir"
+  namespace: "default"
+  labels:
+    app: "quest-example"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "quest-example"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
