@@ -1,6 +1,6 @@
 ## A quest in the clouds
 # Q. What is this quest?
-It is a fun way to assess cloud skills. It is also a good representative sample of the work we do at Rearc. 
+It is a fun way to assess cloud skills. It is also a good representative sample of the work we do. 
 Quest is a webapp made with node.js and golang.
 The demo makes use of GitHub, GCP, DockerHub and Terraform TO  demonstrate some of the capabilities of Containerizing and Application then Deployment to GCP
 
